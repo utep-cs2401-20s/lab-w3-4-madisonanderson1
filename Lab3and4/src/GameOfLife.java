@@ -11,6 +11,12 @@ public class GameOfLife {
         int size = array.length;
         int[][] previous = new int[size][size]
         int[][] board = new int[size][size];
+
+        for (int i = 0; i < array.length; i++){
+            for (int j = 0; j < array.length; j++){
+                previous[i][j] = array[i][j];
+            }
+        }
     }
 
 }
