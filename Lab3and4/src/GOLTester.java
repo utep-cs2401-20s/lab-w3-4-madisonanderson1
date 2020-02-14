@@ -141,4 +141,80 @@ public class GOLTester {
         test.printBoard();
     }
 
+    @Test
+    public void testEvolution1(){
+        int[][] array = {
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+                {0,1,1,1,0},
+                {0,0,0,0,0},
+                {0,0,0,0,0}};
+        GameOfLife test = new GameOfLife(array);
+        test.printPrevious();
+        test.evolution(1);
+        System.out.println();
+        test.printBoard();
+    }
+
+    @Test
+    public void testEvolution2(){
+        int[][] array = {
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+                {0,1,1,1,0},
+                {0,0,0,0,0},
+                {0,0,0,0,0}};
+        GameOfLife test = new GameOfLife(array);
+        test.printPrevious();
+        test.evolution(2);
+        System.out.println();
+        test.printBoard();
+    }
+
+    @Test
+    public void testEvolution3(){
+        int[][] array = {
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+                {0,0,1,0,0},
+                {0,0,0,0,0},
+                {0,0,0,0,0}};
+        GameOfLife test = new GameOfLife(array);
+        test.printPrevious();
+        test.evolution(2);
+        System.out.println();
+        test.printBoard();
+    }
+
+    @Test
+    public void testEvolution4(){
+        int[][] array = {{0,0,0,0,0,0},
+                {0,1,1,0,0,0},
+                {0,1,1,0,0,0},
+                {0,0,0,1,1,0},
+                {0,0,0,1,1,0},
+                {0,0,0,0,0,0}};
+        GameOfLife test = new GameOfLife(array);
+        test.printPrevious();
+        test.evolution(2);
+        System.out.println();
+        test.printBoard();
+    }
+
+    @Test
+    public void testEvolution5(){
+        int[][] array = {
+                {0,0,0,0,0,0},
+                {0,0,0,0,0,0},
+                {0,0,1,1,1,0},
+                {0,1,1,1,0,0},
+                {0,0,0,0,0,0},
+                {0,0,0,0,0,0}};
+        GameOfLife test = new GameOfLife(array);
+        test.printPrevious();
+        test.evolution(2);
+        System.out.println();
+        test.printBoard();
+    }
+
 }

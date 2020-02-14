@@ -3,7 +3,17 @@ import java.util.Arrays;
 public class GameOfLife {
 
     public static void main(String[] args) {
-
+        int[][] array = {
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+                {0,1,1,1,0},
+                {0,0,0,0,0},
+                {0,0,0,0,0}};
+        GameOfLife test = new GameOfLife(array);
+        test.printPrevious();
+        test.evolution(2);
+        System.out.println();
+        test.printBoard();
     }
 
      int size;
@@ -101,6 +111,11 @@ public class GameOfLife {
     public void evolution(int n){
         for(int i = 1; i <= n; i++){
             oneStep();
+            for (int r = 0; r< board.length; r++) {
+                for (int c = 0; c < board.length; c++) {
+                    previous[r][c]=board[r][c];
+                }
+            }
         }
     }
 
