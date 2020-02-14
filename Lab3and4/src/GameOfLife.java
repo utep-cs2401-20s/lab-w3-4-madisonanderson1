@@ -3,15 +3,7 @@ import java.util.Arrays;
 public class GameOfLife {
 
     public static void main(String[] args) {
-        int[][] array = {
-                {0,0,0,0,0,0},
-                {0,0,0,0,0,0},
-                {0,0,1,1,1,0},
-                {0,1,1,1,0,0},
-                {0,0,0,0,0,0},
-                {0,0,0,0,0,0}};
-        GameOfLife test = new GameOfLife(array);
-        System.out.println(test.neighbors(2,2));
+
     }
 
      int size;
@@ -33,7 +25,7 @@ public class GameOfLife {
 
         for (int i = 0; i < array.length;i++){
             for (int j = 0; j < array.length; j++){
-                board[i][j] = array[i][j];
+                previous[i][j] = array[i][j];
             }
         }
     }
@@ -42,42 +34,42 @@ public class GameOfLife {
         int neighbors = 0;
         if (row-1 >= 0 && row-1 < board.length) {
             if (col - 1 >= 0 && col -1 < board.length) {
-                if (board[row - 1][col - 1] == 1) {
+                if (previous[row - 1][col - 1] == 1) {
                     neighbors+=1;
                 }
             }
             if (col + 1 >= 0 && col +1 < board.length) {
-                if (board[row - 1][col + 1] == 1) {
+                if (previous[row - 1][col + 1] == 1) {
                     neighbors+=1;
                 }
             }
-            if (board[row - 1][col] == 1) {
+            if (previous[row - 1][col] == 1) {
                 neighbors+=1;
             }
         }
 
         if (col - 1 >= 0 && col-1 < board.length) {
-            if (board[row][col - 1] == 1) {
+            if (previous[row][col - 1] == 1) {
                 neighbors+=1;
             }
         }
         if (col+1 >= 0 && col+1 < board.length) {
-            if (board[row][col + 1] == 1) {
+            if (previous[row][col + 1] == 1) {
                 neighbors+=1;
             }
         }
         if (row + 1 >= 0 && row+1 < board.length) {
             if (col - 1 >= 0 && col-1 < board.length) {
-                if (board[row + 1][col - 1] == 1) {
+                if (previous[row + 1][col - 1] == 1) {
                     neighbors+=1;
                 }
             }
             if (col+1 >= 0 && col+1 < board.length) {
-                if (board[row + 1][col + 1] == 1) {
+                if (previous[row + 1][col + 1] == 1) {
                     neighbors+=1;
                 }
             }
-            if (board[row + 1][col] == 1) {
+            if (previous[row + 1][col] == 1) {
                 neighbors+=1;
             }
         }
@@ -85,14 +77,9 @@ public class GameOfLife {
     }
 
     public void oneStep(){
-        for (int i = 0; i < board.length;i++){
-            for (int j = 0; j < board.length; j++){
-                previous[i][j] = board[i][j];
-            }
-        }
         for (int i = 0; i< board.length; i++){
             for (int j = 0; j<board.length;j++){
-                if(board[i][j] == 1){
+                if(previous[i][j] == 1){
                     if(neighbors(i, j) < 2 || neighbors(i, j) > 3){
                         board[i][j] = 0;
                     }
@@ -100,7 +87,7 @@ public class GameOfLife {
                         board[i][j] = 1;
                     }
                 }
-                if(board[i][j] == 0){
+                if(previous[i][j] == 0){
                     if(neighbors(i, j) == 3){
                         board[i][j] = 1;
                     } else{
@@ -119,6 +106,24 @@ public class GameOfLife {
 
     public int[][] getBoard() {
         return board;
+    }
+
+    public void printBoard() {
+        for (int i = 0; i < board.length;i++){
+            for (int j = 0; j < board.length; j++){
+                System.out.print(board[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
+    public void printPrevious() {
+        for (int i = 0; i < board.length;i++){
+            for (int j = 0; j < board.length; j++){
+                System.out.print(previous[i][j]);
+            }
+            System.out.println();
+        }
     }
 
     @Override

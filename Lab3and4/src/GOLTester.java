@@ -67,6 +67,78 @@ public class GOLTester {
         GameOfLife test = new GameOfLife(array);
         assertEquals(1, test.neighbors(0,0)); // failed first time but then fixed
     }
-    
+
+    @Test
+    public void testOneStep1(){
+        int[][] array = {
+                {0,0,0,0},
+                {0,1,0,0},
+                {0,0,1,1},
+                {0,1,1,1}};
+        GameOfLife test = new GameOfLife(array);
+        test.printPrevious();
+        test.oneStep();
+        System.out.println();
+        test.printBoard();
+    }
+
+    @Test
+    public void testOneStep2(){
+        int[][] array = {
+                {0,0},
+                {0,0}};
+        GameOfLife test = new GameOfLife(array);
+        test.printPrevious();
+        test.oneStep();
+        System.out.println();
+        test.printBoard();
+    }
+
+    @Test
+    public void testOneStep3(){
+        int[][] array = {
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+                {0,1,1,1,0},
+                {0,0,0,0,0},
+                {0,0,0,0,0}};
+        GameOfLife test = new GameOfLife(array);
+        test.printPrevious();
+        test.oneStep();
+        System.out.println();
+        test.printBoard();
+    }
+
+    @Test
+    public void testOneStep4(){
+        int[][] array = {
+                {0,0,0,0,0,0},
+                {0,0,0,0,0,0},
+                {0,0,1,1,1,0},
+                {0,1,1,1,0,0},
+                {0,0,0,0,0,0},
+                {0,0,0,0,0,0}};
+        GameOfLife test = new GameOfLife(array);
+        test.printPrevious();
+        test.oneStep();
+        System.out.println();
+        test.printBoard();
+    }
+
+    @Test
+    public void testOneStep5(){
+        int[][] array = {
+                {0,0,0,0,0,0},
+                {0,1,1,0,0,0},
+                {0,1,1,0,0,0},
+                {0,0,0,1,1,0},
+                {0,0,0,1,1,0},
+                {0,0,0,0,0,0}};
+        GameOfLife test = new GameOfLife(array);
+        test.printPrevious();
+        test.oneStep();
+        System.out.println();
+        test.printBoard();
+    }
 
 }
