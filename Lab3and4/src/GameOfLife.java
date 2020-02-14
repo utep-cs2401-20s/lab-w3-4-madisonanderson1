@@ -29,7 +29,7 @@ public class GameOfLife {
     }
 
     public GameOfLife(int[][] array){
-        int size = array.length;
+        size = array.length;
         previous = new int[size][size];
         board = new int[size][size];
 

@@ -217,4 +217,73 @@ public class GOLTester {
         test.printBoard();
     }
 
+    @Test
+    public void testTorusNeighbors1(){
+        int[][] array = {
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+                {1,1,1,1,1},
+                {0,0,0,0,0},
+                {0,0,0,0,0}};
+        TorusGameOfLife test = new TorusGameOfLife(array);
+        assertEquals(2, test.neighbors(2,0));
+    }
+
+    @Test
+    public void testTorusNeighbors2(){
+        int[][] array = {
+                {0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,1,0,0,0,0,0},
+                {0,0,0,0,1,1,1,0,0,0,0},
+                {0,0,0,1,0,1,0,1,0,0,0},
+                {0,0,0,1,0,1,0,1,0,0,0},
+                {0,0,0,0,1,1,1,0,0,0,0},
+                {0,0,0,0,0,1,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0}};
+        TorusGameOfLife test = new TorusGameOfLife(array);
+        assertEquals(0, test.neighbors(0,0));
+    }
+
+    @Test
+    public void testTorusNeighbors3(){
+        int[][] array = {{0,0,0,0,0,0},
+                {0,1,1,0,0,0},
+                {0,1,1,0,0,0},
+                {0,0,0,1,1,0},
+                {0,0,0,1,1,0},
+                {0,0,0,0,0,0}};
+        TorusGameOfLife test = new TorusGameOfLife(array);
+        assertEquals(2, test.neighbors(5,3));
+    }
+
+    @Test
+    public void testTorusNeighbors4(){
+        int[][] array = {
+                {0,0,0,0,0,0},
+                {0,0,0,0,0,0},
+                {0,0,1,1,1,0},
+                {0,1,1,1,0,0},
+                {0,0,0,0,0,0},
+                {0,0,0,0,0,0}};
+        TorusGameOfLife test = new TorusGameOfLife(array);
+        assertEquals(2, test.neighbors(1,2));
+    }
+
+    @Test
+    public void testTorusNeighbors5(){
+        int[][] array = {
+                {0,0,0,0,0,0},
+                {0,0,0,0,0,0},
+                {0,0,1,1,1,0},
+                {0,1,1,1,0,0},
+                {0,0,0,0,0,0},
+                {0,0,0,0,0,0}};
+        TorusGameOfLife test = new TorusGameOfLife(array);
+        assertEquals(0, test.neighbors(0,2));
+    }
+
+
 }

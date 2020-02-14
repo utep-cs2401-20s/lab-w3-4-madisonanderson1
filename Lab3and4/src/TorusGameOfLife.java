@@ -1,9 +1,5 @@
 public class TorusGameOfLife extends GameOfLife {
 
-    int size;
-    int[][] previous;
-    int[][] board;
-
     public TorusGameOfLife(){}
 
     public TorusGameOfLife(int size){
@@ -17,28 +13,28 @@ public class TorusGameOfLife extends GameOfLife {
     @Override
     public int neighbors(int row, int col) {
         int neighbors = 0;
-        if(board[(row-1) % size][col % size] == 1){
+        if(previous[Math.floorMod(row-1, size)][Math.floorMod(col,size)] == 1){
             neighbors++;
         }
-        if(board[(row-1) % size][(col-1) % size] == 1){
+        if(previous[Math.floorMod(row-1,size)][Math.floorMod(col-1,size)] == 1){
             neighbors++;
         }
-        if(board[(row-1) % size][(col+1) % size] == 1){
+        if(previous[Math.floorMod(row-1, size)][Math.floorMod(col+1,size)] == 1){
             neighbors++;
         }
-        if(board[row % size][(col-1) % size] == 1){
+        if(previous[Math.floorMod(row, size)][Math.floorMod(col-1, size)] == 1){
             neighbors++;
         }
-        if(board[row % size][(col+1) % size] == 1){
+        if(previous[Math.floorMod(row, size)][Math.floorMod(col+1, size)] == 1){
             neighbors++;
         }
-        if(board[(row+1) % size][col % size] == 1){
+        if(previous[Math.floorMod(row+1, size)][Math.floorMod(col, size)] == 1){
             neighbors++;
         }
-        if(board[(row+1) % size][(col-1) % size] == 1){
+        if(previous[Math.floorMod(row+1, size)][Math.floorMod(col-1, size)] == 1){
             neighbors++;
         }
-        if(board[(row+1) % size][(col+1) % size] == 1){
+        if(previous[Math.floorMod(row+1, size)][Math.floorMod(col+1, size)] == 1){
             neighbors++;
         }
        return neighbors;
