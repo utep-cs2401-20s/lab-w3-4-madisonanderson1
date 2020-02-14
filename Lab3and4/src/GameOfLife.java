@@ -1,7 +1,17 @@
+import java.util.Arrays;
+
 public class GameOfLife {
 
     public static void main(String[] args) {
-
+        int[][] array = {
+                {0,0,0,0,0,0},
+                {0,0,0,0,0,0},
+                {0,0,1,1,1,0},
+                {0,1,1,1,0,0},
+                {0,0,0,0,0,0},
+                {0,0,0,0,0,0}};
+        GameOfLife test = new GameOfLife(array);
+        System.out.println(test.neighbors(2,2));
     }
 
      int size;
@@ -23,7 +33,7 @@ public class GameOfLife {
 
         for (int i = 0; i < array.length;i++){
             for (int j = 0; j < array.length; j++){
-                previous[i][j] = array[i][j];
+                board[i][j] = array[i][j];
             }
         }
     }
@@ -33,42 +43,42 @@ public class GameOfLife {
         if (row-1 >= 0 && row-1 < board.length) {
             if (col - 1 >= 0 && col -1 < board.length) {
                 if (board[row - 1][col - 1] == 1) {
-                    neighbors++;
+                    neighbors+=1;
                 }
             }
             if (col + 1 >= 0 && col +1 < board.length) {
                 if (board[row - 1][col + 1] == 1) {
-                    neighbors++;
+                    neighbors+=1;
                 }
             }
             if (board[row - 1][col] == 1) {
-                neighbors++;
+                neighbors+=1;
             }
         }
 
         if (col - 1 >= 0 && col-1 < board.length) {
             if (board[row][col - 1] == 1) {
-                neighbors++;
+                neighbors+=1;
             }
         }
         if (col+1 >= 0 && col+1 < board.length) {
             if (board[row][col + 1] == 1) {
-                neighbors++;
+                neighbors+=1;
             }
         }
         if (row + 1 >= 0 && row+1 < board.length) {
             if (col - 1 >= 0 && col-1 < board.length) {
                 if (board[row + 1][col - 1] == 1) {
-                    neighbors++;
+                    neighbors+=1;
                 }
             }
             if (col+1 >= 0 && col+1 < board.length) {
                 if (board[row + 1][col + 1] == 1) {
-                    neighbors++;
+                    neighbors+=1;
                 }
             }
             if (board[row + 1][col] == 1) {
-                neighbors++;
+                neighbors+=1;
             }
         }
         return neighbors;
@@ -106,5 +116,17 @@ public class GameOfLife {
             oneStep();
         }
     }
-    
+
+    public int[][] getBoard() {
+        return board;
+    }
+
+    @Override
+    public String toString() {
+        return "GameOfLife{" +
+                "size=" + size +
+                ", previous=" + Arrays.toString(previous) +
+                ", board=" + Arrays.toString(board) +
+                '}';
+    }
 }
