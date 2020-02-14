@@ -285,5 +285,169 @@ public class GOLTester {
         assertEquals(0, test.neighbors(0,2));
     }
 
+    @Test
+    public void testTorusOneStep1(){
+        int[][] array = {
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+                {0,1,1,1,0},
+                {0,0,0,0,0},
+                {0,0,0,0,0}};
+        TorusGameOfLife test = new TorusGameOfLife(array);
+        test.printPrevious();
+        test.oneStep();
+        System.out.println();
+        test.printBoard();
+    }
 
+    @Test
+    public void testTorusOneStep2(){
+        int[][] array = {
+                {0,0,0,0,0,0},
+                {0,0,0,0,0,0},
+                {0,0,1,1,1,0},
+                {0,1,1,1,0,0},
+                {0,0,0,0,0,0},
+                {0,0,0,0,0,0}};
+        TorusGameOfLife test = new TorusGameOfLife(array);
+        test.printPrevious();
+        test.oneStep();
+        System.out.println();
+        test.printBoard();
+    }
+
+    @Test
+    public void testTorusOneStep3(){
+        int[][] array = {
+                {0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,1,0,0,0,0,0},
+                {0,0,0,0,1,1,1,0,0,0,0},
+                {0,0,0,1,0,1,0,1,0,0,0},
+                {0,0,0,1,0,1,0,1,0,0,0},
+                {0,0,0,0,1,1,1,0,0,0,0},
+                {0,0,0,0,0,1,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0}};
+        TorusGameOfLife test = new TorusGameOfLife(array);
+        test.printPrevious();
+        test.oneStep();
+        System.out.println();
+        test.printBoard();
+    }
+
+    @Test
+    public void testTorusOneStep4(){
+        int[][] array = {
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+                {1,1,1,1,1},
+                {0,0,0,0,0},
+                {0,0,0,0,0}};
+        TorusGameOfLife test = new TorusGameOfLife(array);
+        test.printPrevious();
+        test.oneStep();
+        System.out.println();
+        test.printBoard();
+    }
+
+    @Test
+    public void testTorusOneStep5(){
+        int[][] array = {
+                {0,0,0,0,0,0},
+                {0,0,0,0,0,0},
+                {0,0,1,1,1,0},
+                {0,1,1,1,0,0},
+                {0,0,0,0,0,0},
+                {0,0,0,0,0,0}};
+        TorusGameOfLife test = new TorusGameOfLife(array);
+        test.printPrevious();
+        test.oneStep();
+        System.out.println();
+        test.printBoard();
+    }
+
+    @Test
+    public void testTorusEvolution1(){
+        int[][] array = {
+                {0,0,0,0,0,0},
+                {0,0,0,0,0,0},
+                {0,0,1,1,1,0},
+                {0,1,1,1,0,0},
+                {0,0,0,0,0,0},
+                {0,0,0,0,0,0}};
+        TorusGameOfLife test = new TorusGameOfLife(array);
+        test.printPrevious();
+        test.evolution(2);
+        System.out.println();
+        test.printBoard();
+    }
+
+    @Test
+    public void testTorusEvolution2(){
+        int[][] array = {
+                {0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,1,0,0,0,0,0},
+                {0,0,0,0,1,1,1,0,0,0,0},
+                {0,0,0,1,0,1,0,1,0,0,0},
+                {0,0,0,1,0,1,0,1,0,0,0},
+                {0,0,0,0,1,1,1,0,0,0,0},
+                {0,0,0,0,0,1,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0}};
+        TorusGameOfLife test = new TorusGameOfLife(array);
+        test.printPrevious();
+        test.evolution(3);
+        System.out.println();
+        test.printBoard();
+    }
+
+    @Test
+    public void testTorusEvolution3(){
+        int[][] array = {
+                {0,0,0,0,0,0},
+                {0,0,0,0,0,0},
+                {0,0,1,1,1,0},
+                {0,1,1,1,0,0},
+                {0,0,0,0,0,0},
+                {0,0,0,0,0,0}};
+        TorusGameOfLife test = new TorusGameOfLife(array);
+        test.printPrevious();
+        test.evolution(2);
+        System.out.println();
+        test.printBoard();
+    }
+
+    @Test
+    public void testTorusEvolution4(){
+        int[][] array = {
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+                {0,1,1,1,0},
+                {0,0,0,0,0},
+                {0,0,0,0,0}};
+        TorusGameOfLife test = new TorusGameOfLife(array);
+        test.printPrevious();
+        test.evolution(1);
+        System.out.println();
+        test.printBoard();
+    }
+
+    @Test
+    public void testTorusEvolution5(){
+        int[][] array = {
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+                {0,1,1,1,0},
+                {0,0,0,0,0},
+                {0,0,0,0,0}};
+        TorusGameOfLife test = new TorusGameOfLife(array);
+        test.printPrevious();
+        test.evolution(2);
+        System.out.println();
+        test.printBoard();
+    }
 }
